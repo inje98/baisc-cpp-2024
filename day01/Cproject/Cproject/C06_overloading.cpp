@@ -1,8 +1,8 @@
 #include<iostream>
 
 using namespace std;
-
-
+ // 함수 오버로딩
+ // 함수 이름 같아도 매개변수 갯수랑, 매개변수 타입이 다르면 다른 함수처럼 쓸 수 있음
 void MyFunc(void)
 {
 	cout << "Func(void) called" << endl;
