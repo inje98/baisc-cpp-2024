@@ -114,9 +114,7 @@ int main()
 			cout << "\n\n\n" << input1 << input3 << input2 << '=' << dival << "\n\n\n" << endl;
 		}
 
-		else
-			cout << "잘못 입력한듯 처음부터 다시 쓰셈" << endl;
-		continue;
+
 	}
 
 		return 0;
