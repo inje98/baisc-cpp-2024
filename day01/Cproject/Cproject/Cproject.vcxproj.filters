@@ -15,22 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test01.cpp">
+    <ClCompile Include="C01.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test03_cin.cpp">
+    <ClCompile Include="C02_if.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test04_local.cpp">
+    <ClCompile Include="C03_switch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test05_for.cpp">
+    <ClCompile Include="C04_for.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test02.cpp">
+    <ClCompile Include="C05_while.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test06_string.cpp">
+    <ClCompile Include="C06_overloading.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
