@@ -59,7 +59,7 @@ int main()
 			continue;  // 다음 반복으로 이동
 		}
 		cout << "받은 값 : " << input1 << endl;
-		
+
 
 
 		cout << "연산자를 입력하세요 > ";
@@ -85,14 +85,14 @@ int main()
 		cout << "받은 값 : " << input2 << endl;
 
 
-		
+
 
 
 
 		if (input3 == '+')
 		{
 			output = add(input1, input2);
-			cout << "\n\n\n"<<input1 << input3 << input2 << '=' << output << "\n\n\n" << endl;
+			cout << "\n\n\n" << input1 << input3 << input2 << '=' << output << "\n\n\n" << endl;
 		}
 
 		else if (input3 == '-')
@@ -117,5 +117,5 @@ int main()
 
 	}
 
-		return 0;
+	return 0;
 }
