@@ -13,8 +13,9 @@ int main()
 
 	cout << "pi가 가리키는 곳에 저장된 값: " << *pi << endl;
 	delete pi;
-	cout << "pi가 가리키는 곳에 저장된 값: " << *pi << endl;
+	//cout << "pi가 가리키는 곳에 저장된 값: " << *pi << endl;   // 해제하고 나면 값 없어짐
 
+	int* pary = new int[10]; // int 10칸[4 x 10] 바이트 만큼의 공간을 힙 영역에 할당
 
 	return 0;
 }
