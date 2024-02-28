@@ -19,11 +19,11 @@ class BBB
 {
 private:
 	AAA& ref;
-	const int& num;  // const int &numÀÌ¸é ¼ıÀÚ ³ÖÀ» ¼ö ÀÖÀ½!! (¿ø·¡ int &numÀÌ¸é º¯¼ö¿Í¾ß ÇßÀİ¾Æ)
+	const int& num;  // const int &numì´ë©´ ìˆ«ì ë„£ì„ ìˆ˜ ìˆìŒ!! (ì›ë˜ int &numì´ë©´ ë³€ìˆ˜ì™€ì•¼ í–ˆì–ì•„)
 
 public:
-	BBB(AAA& r, const int& n) :ref(r), num(n){} // ÀÌ·¸°Ô ÇÏ¸é »ı¼ºÀÚ°¡ È£Ãâ¸¸ µÇ¸é ÃÊ±âÈ­ µÇ´Â°ÅÀÓ!
-
+	BBB(AAA& r, const int& n) :ref(r), num(n){} // ì´ë ‡ê²Œ í•˜ë©´ ìƒì„±ìê°€ í˜¸ì¶œë§Œ ë˜ë©´ ì´ˆê¸°í™” ë˜ëŠ”ê±°ì„!
+							// ì•„ë§ˆ ê°ì²´ ë°›ì„ë•Œë‘ const int& num ì´ëŸ´ë•ŒëŠ” ê±°ì˜ ì´ë‹ˆì…œë¼ì´ì¦ˆ ì“°ëŠ”ë“¯?
 	void ShowYourName()
 	{
 		ref.ShowYourName();
