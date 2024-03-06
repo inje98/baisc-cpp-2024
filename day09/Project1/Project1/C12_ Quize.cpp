@@ -41,6 +41,12 @@ Point operator+(int value, const Point& ref)
 // operator+(int value, const Point& ref) 이렇게 쓰는거. 
 // 이게 (정수 + 객체) 임
 
+class ostream
+{
+
+};
+
+
 int main(void)
 {
 	Point a(10, 20);
@@ -56,20 +62,11 @@ int main(void)
 	d.viewPoint();
 	e.viewPoint();
 
+
+	cout << c << endl;
+	cout << d << endl;
+	cout << e << endl;
+
 	return 0;
 }
 
-//Point operator*(int times)
-//{
-//	Point pos(xpos * times, ypos * times);
-//
-//	return pos;
-//}
-//
-//friend Point operator*(int times, Point& ref);
-//};
-//
-//Point operator*(int times, Point& ref)
-//{
-//	return ref * times;  // return ref.operator*(times) 같은말이지. 위로 가겠지
-//}
