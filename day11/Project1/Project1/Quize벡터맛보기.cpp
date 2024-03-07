@@ -73,8 +73,8 @@ int main()
 	cout << "己利贸府 切积 荐: " << endl;
 	cin >> num;
 
-	vector<Grade*> gradeAry(num);
-	vector<Grade> gradeAry(num);
+	//vector<Grade*> gradeAry(num);
+	//vector<Grade> gradeAry(num);
 
 
 	for (int i = 0; i < num; i++)

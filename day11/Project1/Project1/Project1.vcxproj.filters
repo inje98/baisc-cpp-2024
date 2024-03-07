@@ -57,7 +57,7 @@
     <ClCompile Include="Quize객체배열.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Quize벡터 하는중.cpp">
+    <ClCompile Include="Quize벡터맛보기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
