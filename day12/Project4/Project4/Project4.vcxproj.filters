@@ -15,22 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="점수Quize_Upgrade.cpp">
+    <ClCompile Include="Quize.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="C01_NeedSpecialFunctionTemplate.cpp">
+    <ClCompile Include="직원.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="C02_SpecialFunctionTemplate.cpp">
+    <ClCompile Include="점수.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="C03_PointClassTemplate.cpp">
+    <ClCompile Include="점수 객체포인터배열.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="C04_PointClassTemplateFuncDef.cpp">
+    <ClCompile Include="Quize3번시도.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="cmd에서 입력 받기.cpp">
+    <ClCompile Include="Quize3번 거의 완성.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
