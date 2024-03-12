@@ -1,212 +1,167 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include<iostream>
-#include<cstring>
-#include<string>
-#include<vector>  // 헤더 추가: 동적 배열 사용을 위해 vector 헤더 추가
+#include<time.h>
 using namespace std;
+//가변배열 클래스 만들어보기
 
-int input_Count = 0;
-
-vector<int> BookCount;  // 배열에서 vector로 변경
-vector<int> PhoneCount;
-vector<int> ComputerCount;
-
-class Product {
-protected:
-    char* id;
-    int price;
-    char* producer;
-
-public:
-    Product(const char* iid, int price, const char* iproducer) : id(nullptr), price(price), producer(nullptr) {
-        id = new char[strlen(iid) + 1];
-        strcpy(id, iid);
-
-        producer = new char[strlen(iproducer) + 1];
-        strcpy(producer, iproducer);
-    }
-
-    virtual ~Product() {  // 가상 소멸자 추가
-        delete[] id;
-        delete[] producer;
-    }
-
-    char* Get_id() const { return id; }
-    int Get_price() const { return price; }
-    char* Get_producer() const { return producer; }
-
-    virtual char* Show_id() const { return nullptr; }
-    virtual int Show_price() const { return 0; }
-    virtual char* Show_producer() const { return nullptr; }
-    virtual bool compareName(const char* inputId) const { return false; }
-};
-
-class Book : public Product {
+class Array
+{
 private:
-    char* ID;
-    char* author;
-    char* title;
+    int* input;
+    int Count;
+    int MaxCount;
+
+    void AddSize_Ary()
+    {
+        int* NewInput = new int[sizeof(int) * 2 * MaxCount];
+
+        for (int i = 0; i < Count; ++i)
+        {
+            NewInput[i] = input[i];
+        }
+
+        input = NewInput;
+        MaxCount *= 2;
+    }
 
 public:
-    Book(const char* id, int price, const char* iproducer, const char* iID, const char* iauthor, const char* ititle)
-        : Product(id, price, iproducer), ID(nullptr), author(nullptr), title(nullptr) {
-        ID = new char[strlen(iID) + 1];
-        strcpy(ID, iID);
-
-        author = new char[strlen(iauthor) + 1];
-        strcpy(author, iauthor);
-
-        title = new char[strlen(ititle) + 1];
-        strcpy(title, ititle);
-
-        BookCount.push_back(input_Count);
+    Array()
+    {
+        input = new int[sizeof(int) * 2];  // sizeof(int) ==>    4바이트 x 2 = 8바이트
+        Count = 0;
+        MaxCount = 2;
     }
 
-    ~Book() {
-        delete[] ID;
-        delete[] author;
-        delete[] title;
+    ~Array()
+    {
+        delete[] input;
     }
 
-    char* Show_id() const override { return id; }
-    int Show_price() const override { return price; }
-    char* Show_producer() const override { return producer; }
 
-    bool compareName(const char* inputId) const override {
-        return strcmp(title, inputId) == 0;
+    void InputData(int inputData)
+    {
+        if (Count >= MaxCount)
+        {
+            AddSize_Ary();
+        }
+
+        input[Count++] = inputData;
     }
 
-    char* Get_ID() const { return ID; }
-    char* Get_author() const { return author; }
-    char* Get_title() const { return title; }
+    void ShowData()
+    {
+        for (int i = 0; i < Count; ++i)
+        {
+            cout << this->input[i] << endl;
+        }
+    }
+
+    int* GetAryNum()
+    {
+        return input;
+    }
+
+    int GetAryCount()
+    {
+        return Count;
+    }
+
 };
 
-class Handphone : public Product {
-private:
-    char* model;
-    int RAM;
+void Sort(Array& ary, void(*pFunc)(Array&))
+{
+    pFunc(ary);
+}
 
-public:
-    Handphone(const char* id, int price, const char* iproducer, const char* imodel, int RAM)
-        : Product(id, price, iproducer), model(nullptr), RAM(RAM) {
-        model = new char[strlen(imodel) + 1];
-        strcpy(model, imodel);
+//void Sort(Array& ary, void(*pFunc)(int*, int))
+//{
+//   pFunc(ary.GetAryNum(), ary.GetAryCount());
+//}
 
-        PhoneCount.push_back(input_Count);
+void BubbleSort(Array& ary)
+{
+    if (ary.GetAryCount() <= 1)
+    {
+        return;
     }
+    while (1)
+    {
+        bool sortFinish = true;
+        for (int i = 0; i < ary.GetAryCount() - 1; ++i)
+        {
 
-    ~Handphone() {
-        delete[] model;
-    }
-
-    char* Show_id() const override { return id; }
-    int Show_price() const override { return price; }
-    char* Show_producer() const override { return producer; }
-
-    bool compareName(const char* inputId) const override {
-        return strcmp(model, inputId) == 0;
-    }
-
-    char* Get_model() const { return model; }
-    int Get_RAM() const { return RAM; }
-};
-
-class Computer : public Product {
-private:
-    char* model;
-    char* cpu;
-    int RAM;
-
-public:
-    Computer(const char* id, int price, const char* iproducer, const char* imodel, const char* icpu, int RAM)
-        : Product(id, price, iproducer), model(nullptr), cpu(nullptr), RAM(RAM) {
-        model = new char[strlen(imodel) + 1];
-        strcpy(model, imodel);
-
-        cpu = new char[strlen(icpu) + 1];
-        strcpy(cpu, icpu);
-
-        ComputerCount.push_back(input_Count);
-    }
-
-    ~Computer() {
-        delete[] model;
-        delete[] cpu;
-    }
-
-    char* Show_id() const override { return id; }
-    int Show_price() const override { return price; }
-    char* Show_producer() const override { return producer; }
-
-    bool compareName(const char* inputId) const override {
-        return strcmp(model, inputId) == 0;
-    }
-
-    char* Get_model() const { return model; }
-    char* Get_cpu() const { return cpu; }
-    int Get_RAM() const { return RAM; }
-};
-
-int main(void) {
-    vector<Product*> products;  // 동적 배열 사용을 위해 vector 사용
-
-    while (1) {
-        int input;
-        cout << "-------------상품관리 프로그램-----------------" << endl;
-        cout << "1. 상품추가    2. 상품출력    3. 상품검색    0. 종료" << endl;
-        cout << ">> ";
-        cin >> input;
-        cout << "\n" << endl;
-
-        if (input == 0) {
-            // 벡터의 동적 할당된 객체들을 해제
-            for (Product* p : products) {
-                delete p;
+            if (ary.GetAryNum()[i] > ary.GetAryNum()[i + 1])
+            {
+                int temp = ary.GetAryNum()[i];
+                ary.GetAryNum()[i] = ary.GetAryNum()[i + 1];
+                ary.GetAryNum()[i + 1] = temp;
+                sortFinish = false;
             }
-            exit(1);
         }
-
-        if (input == 1) {
-            int Add_input;
-            cout << "1. 책 추가\n"
-                << "2. 핸드폰 추가\n"
-                << "3. 컴퓨터 추가\n"
-                << ">> ";
-            cin >> Add_input;
-            cout << "\n" << endl;
-
-            // ... (입력 부분은 그대로 유지)
-
-        }
-
-        if (input == 2) {
-            int print_input;
-            cout << "1. 책 출력\n"
-                << "2. 핸드폰 출력\n"
-                << "3. 컴퓨터 출력\n"
-                << ">> ";
-            cin >> print_input;
-            cout << "\n" << endl;
-
-            // ... (출력 부분은 그대로 유지)
-
-        }
-
-        if (input == 3) {
-            int search_input;
-
-            cout << "1. 책 검색\n"
-                << "2. 핸드폰 검색\n"
-                << "3. 컴퓨터 검색\n"
-                << ">> ";
-            cin >> search_input;
-            cout << "\n" << endl;
-
-            // ... (검색 부분은 그대로 유지)
-
+        if (sortFinish == true)
+        {
+            break;
         }
     }
+}
+
+void BubbleSort(int* ary, int count)
+{
+    if (count <= 1)
+    {
+        return;
+    }
+    while (1)
+    {
+        bool sortFinish = true;
+        for (int i = 0; i < count - 1; ++i)
+        {
+
+            if (ary[i] > ary[i + 1])
+            {
+                int temp = ary[i];
+                ary[i] = ary[i + 1];
+                ary[i + 1] = temp;
+                sortFinish = false;
+            }
+        }
+        if (sortFinish == true)
+        {
+            break;
+        }
+    }
+}
+
+
+int main(void)
+{
+    Array a1;
+
+    /*int a2[10] = { 42, 677, 3, 754, 75, 35, 785 };
+
+    BubbleSort(a2, 10);*/
+
+
+    /*for (int i = 0; i < 10; i++)
+    {
+       cout << a2[i] << endl;
+    }*/
+
+    for (int i = 0; i < 10; ++i)
+    {
+        int inputRand = rand() % 100 + 1;
+        a1.InputData(inputRand);
+    }
+
+    Sort(a1, BubbleSort);
+
+    cout << "변경전" << endl;
+    a1.ShowData();
+
+    cout << "변경후" << endl;
+
+
+    BubbleSort(a1);
+    a1.ShowData();
 
     return 0;
 }
