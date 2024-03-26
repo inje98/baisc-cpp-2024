@@ -1,3 +1,9 @@
+/*
+    File: Product Manager.cpp
+    Created: 24-03-26
+    Author: ±Ë¿Œ¡¶
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include<iostream>

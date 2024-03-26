@@ -35,8 +35,6 @@ void PushBack(tLinkedList* pList, int iData)
             pCurFinalNode = pCurFinalNode->pNextNode; // 계속 NULL찾아
         }
         pCurFinalNode->pNextNode = pNode; // NULL 찾았으니 이제 거기가 새로운 놈 가리키게
-
     }
     ++pList->iCount;
-
 }

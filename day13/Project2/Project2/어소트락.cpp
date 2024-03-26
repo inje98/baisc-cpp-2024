@@ -47,6 +47,20 @@ void PushBack(tLinkedList* pList, int iData)
     ++pList->iCount;
 }
 
+void freeList(tLinkedList* list)
+{
+    tNode* cur = list->pHeadNode;
+    tNode* next;
+
+    for (int i = 0; i < list->iCount; ++i)
+    {
+        next = cur->pNextNode;
+        printf("삭제\n");
+        free(cur);
+        cur = next;
+    }
+ }
+
 int main()
 {
     tLinkedList list = {};
@@ -55,6 +69,8 @@ int main()
     PushBack(&list, 100);
     PushBack(&list, 200);
     PushBack(&list, 300);
+
+    freeList(&list);
 
     // 추가적인 연결 리스트 작업을 수행할 수 있음
 
