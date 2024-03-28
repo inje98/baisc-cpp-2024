@@ -1,10 +1,10 @@
 /*
 	File: linkedList.c
-	Created: 24-03-26
+	Created: 24-03-27
 	Author: ±Ë¿Œ¡¶
 */
 
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>

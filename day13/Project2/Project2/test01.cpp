@@ -1,13 +1,22 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-int main() {
-	int num;
-	char c;
+#include<iostream>
 
-	printf("숫자를 입력하세요 : ");
-	scanf("%d", &num);
+using namespace std;
+int Add(int* a, int* b)
+{
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 
-	printf("문자를 입력하세요 : ");
-	scanf("%c", &c);
+	return temp;
+}
+
+int main() 
+{
+	int a = 1;
+	int b = 2;
+	cout << Add(&a, &b) << endl;
+
 	return 0;
 }
